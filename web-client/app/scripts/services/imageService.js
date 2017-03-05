@@ -47,7 +47,9 @@ angular.module('webClientApp')
           // on the frontend or backend to not include non-english characters
           // we'll have to tell the user to fix this instead.
           var filename = data.image.asset && data.image.asset.name;
+          /* eslint-disable no-control-regex */
           if (filename && filename.match(/[^\x00-\x7F]+/ig, 'X')) {
+          /* eslint-enable no-control-regex */
             if (optError) {
               optError(
                   'اسم الملف غير صالح. الرجاء تغيير اسم الملف' +
